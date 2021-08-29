@@ -17,14 +17,15 @@ class OtherActivity : AppCompatActivity() {
 
         returnToMainBtn.setOnClickListener {
 
-            //다른 화면으로 이동하기가 눌리면?
 
-            //어디서 -> 어느 화면으로 이동할건지 정보 (Intent) 명시. => 변수에 담아서 저장.
 
             val myIntent = Intent(this, MainActivity::class.java)
 
             // 실제 이동 시키자.
             startActivity(myIntent)
+
+            //지금 보고있는 다른화면을 종료 처리
+            finish()
         }
     }
 }
