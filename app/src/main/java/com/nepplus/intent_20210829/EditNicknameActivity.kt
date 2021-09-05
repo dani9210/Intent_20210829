@@ -1,5 +1,6 @@
 package com.nepplus.intent_20210829
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_edit_nickname.*
@@ -15,14 +16,14 @@ class EditNicknameActivity : AppCompatActivity() {
 
             val inputNickname = nicknameEdt.text.toString()
 
-            //// 그변수를 들고 이전화면으로 복귀 (figish())
-            //들고 : 데이터 첨부 -> Itent putExtra  활용
+            //// 그변수를 들고 이전화면으로 복귀 (finish())
+            //들고 : 데이터 첨부 -> Intent putExtra  활용
 
-            val reslutIntent = Intent()
+            val resultIntent = Intent()
 
             //닉네임 첨부
 
-            reslutIntent.putExtra("newNickname", inputNickname)
+            resultIntent.putExtra("newNickname", inputNickname)
 
             //완료 ( Ok) 누른게 맞다 + Intent 세팅. => 이화면의 결과 지정.
             setResult(RESULT_OK, resultIntent)
