@@ -1,6 +1,7 @@
 package com.nepplus.intent_20210829
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,6 +13,23 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
+        // 전화 걸기 (DIAL)  Intent 활용 예시.
+        dialBtn.setOnClickListener {
+            //전화번호를 받아오자.
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+            //어디에 전화를 걸지 알려주는 정보 (Uri) 로 가공.
+            val myUri = Uri.parse("tel:${inputPhoneNum}")  //tel:입력한 번호 형태로 가공.
+
+        // 전화 화면으로 이동 + 어디에 걸지 (Uri) 조합 -> Intent
+
+             val myIntent = Intent( Intent.ACTION_DIAL, myUri )
+            startActivity(myIntent)
+
+        }
 
         editNicknameBtn.setOnClickListener {
 
@@ -77,28 +95,31 @@ class MainActivity : AppCompatActivity() {
     //    완료를 누르건, 최소를 누르건 무조건 실행되는 함수 -> 이 두 상황을 구별하자.
 
 
-
-       // 1.requestCode : int ->startActivityForResult에 넣어준 숫자값이 뭐였는가?
-       //     => 어디를 다녀온건지 알려주는 역할.
+        // 1.requestCode : int ->startActivityForResult에 넣어준 숫자값이 뭐였는가?
+        //     => 어디를 다녀온건지 알려주는 역할.
         //    =>이번에 다녀온게, 닉네임을 받으러 다녀온건지? 상황에 맞는코드.
 
 
         if (requestCode == REQUEST_CODE_FOR_NICKNAME)
 
 
-            //  2.  resultCode: Int -> 돌아올때, RESULT_OK를 갖고왔는지, 취소값으로 갖고왓는지
-    //    =>확인을 누른게 맞는지 구별의 근거자료.
+        //  2.  resultCode: Int -> 돌아올때, RESULT_OK를 갖고왔는지, 취소값으로 갖고왓는지
+        //    =>확인을 누른게 맞는지 구별의 근거자료.
 
-        if (resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
 
-            // 닉네임 ->  OK 까지 한 상황.
-        //   받아온 닉네임값을 텍스트뷰에 반영.
-        //  data변수에 ->  resultIntent가 담겨있는상황.
-        // -> 갖고있는 string 하나를 꺼내라고하자.
+                // 닉네임 ->  OK 까지 한 상황.
+                //   받아온 닉네임값을 텍스트뷰에 반영.
+                //  data변수에 ->  resultIntent가 담겨있는상황.
+                // -> 갖고있는 string 하나를 꺼내라고하자.
 
-            val newNickname = data?.getStringExtra("newNickname")
-            nicknameTxt.text = newNickname
-        }
+                val newNickname = data?.getStringExtra("newNickname")
+                nicknameTxt.text = newNickname
+            }
+
+
+
+
 
     }
 
