@@ -15,17 +15,34 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+
+        naverLinkBtn.setOnClickListener {
+
+            val myUri = Uri.parse("http://naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        kakaostoreLinkBtn.setOnClickListener {
+
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+
                smsBtn.setOnClickListener {
 
                    val inputPhoneNum = phoneNumEdt.text.toString()
                    val myUri = Uri.parse("smsto:$({inputPhonum}")
                    val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
-                   startActivity(myIntent)
-//                   미리 보여주기
+
+                   //미리 보여주기
 
                    myIntent.putExtra("sms_body","미리 적어줄 내용")
-
                    startActivity(myIntent)
+//
+
                }
            callBtn.setOnClickListener {
 

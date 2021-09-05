@@ -94,7 +94,16 @@
         android:layout_height="wrap_content"
         android:text="문자보내기 (SENDTO)"/>
 
-
+    <Button
+        android:id="@+id/naverLinkBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="네이버 웹 링크 (VIEW)"/>
+    <Button
+        android:id="@+id/kakaostoreLinkBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카옽고 플레이스토어 링크 (VIEW)"/>
 
 
 
