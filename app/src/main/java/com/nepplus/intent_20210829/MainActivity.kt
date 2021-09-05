@@ -78,8 +78,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
        // 1.requestCode : int ->startActivityForResult에 넣어준 숫자값이 뭐였는가?
        //     => 어디를 다녀온건지 알려주는 역할.
         //    =>이번에 다녀온게, 닉네임을 받으러 다녀온건지? 상황에 맞는코드.
