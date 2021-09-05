@@ -15,7 +15,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+               smsBtn.setOnClickListener {
 
+                   val inputPhoneNum = phoneNumEdt.text.toString()
+                   val myUri = Uri.parse("smsto:$({inputPhonum}")
+                   val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+                   startActivity(myIntent)
+//                   미리 보여주기
+
+                   myIntent.putExtra("sms_body","미리 적어줄 내용")
+
+                   startActivity(myIntent)
+               }
            callBtn.setOnClickListener {
 
                // 문법상 틀린게 없어도 앱이 죽는다.
